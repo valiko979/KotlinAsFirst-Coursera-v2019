@@ -120,12 +120,26 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
  * Сколько денег будет на счету через 3 года (с учётом сложных процентов)?
  * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
  */
-fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
-
+fun accountInThreeYears(initial: Int, percent: Int): Double {
+    var amount = initial*1.0
+    for (n in 1..3) {
+        amount+=amount*percent/100
+    }
+    return amount
+}
 /**
  * Простая
  *
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int = TODO()
+fun numberRevert(number: Int): Int {
+    var revert = 0
+    var number1=number
+    do {
+        revert=revert*10+number1%10
+        number1=number1/10
+    }
+    while (number1 > 0)
+    return revert
+}
